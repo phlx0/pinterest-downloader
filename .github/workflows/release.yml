@@ -26,6 +26,7 @@ jobs:
             --artifacts-dir dist \
             --api-key "${{ secrets.AMO_API_KEY }}" \
             --api-secret "${{ secrets.AMO_API_SECRET }}" \
+            --amo-metadata amo-metadata.json \
             --channel listed
         continue-on-error: true
 

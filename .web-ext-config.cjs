@@ -8,5 +8,6 @@ module.exports = {
     "README.md",
     "dist/**",
     "web-ext-artifacts/**",
+    "amo-metadata.json",
   ],
 };
