@@ -66,12 +66,17 @@ function pageBoardName() {
   return sanitize(parts[0]);
 }
 
+const _parser = new DOMParser();
+function _parseSvg(svgStr) {
+  return _parser.parseFromString(svgStr, "image/svg+xml").documentElement;
+}
+
 function makeButton(url, isVideo) {
   const btn = document.createElement("button");
   btn.className = BUTTON_CLASS;
   btn.title = isVideo ? "Download video (HD)" : "Download image (HD)";
   btn.setAttribute("aria-label", btn.title);
-  btn.innerHTML = isVideo ? ICON_VIDEO : ICON_IMAGE;
+  btn.appendChild(_parseSvg(isVideo ? ICON_VIDEO : ICON_IMAGE));
 
   btn.addEventListener("click", (e) => {
     e.preventDefault();
