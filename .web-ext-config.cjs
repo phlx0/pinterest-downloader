@@ -2,7 +2,7 @@ module.exports = {
   ignoreFiles: [
     ".github/**",
     ".gitignore",
-    ".web-ext-config.js",
+    ".web-ext-config.cjs",
     "LICENSE",
     "CHANGELOG.md",
     "README.md",
