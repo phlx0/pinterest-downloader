@@ -55,6 +55,17 @@ function bestVideoUrl(root) {
 const BUTTON_CLASS = "phd-btn";
 const PROCESSED_ATTR = "data-phd";
 
+function pageBoardName() {
+  function sanitize(s) {
+    return s.replace(/[^a-zA-Z0-9_\-. ]/g, "_").slice(0, 64);
+  }
+  const parts = location.pathname.replace(/^\/|\/$/g, "").split("/").filter(Boolean);
+  if (!parts.length || parts[0] === "pin") return "unsorted";
+  if (parts[0] === "search") return "search";
+  if (parts.length >= 2) return sanitize(parts[1]);
+  return sanitize(parts[0]);
+}
+
 function makeButton(url, isVideo) {
   const btn = document.createElement("button");
   btn.className = BUTTON_CLASS;
@@ -70,7 +81,7 @@ function makeButton(url, isVideo) {
       .sendMessage({
         type: "download",
         url: finalUrl,
-        filename: filenameFromUrl(finalUrl),
+        filename: `Pinterest/${pageBoardName()}/${filenameFromUrl(finalUrl)}`,
       })
       .catch((err) => {
         console.error("Pinterest Downloader: messaging failed.", err);
