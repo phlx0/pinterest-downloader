@@ -29,7 +29,20 @@ jobs:
             --channel listed
         continue-on-error: true
 
+      - name: Extract changelog
+        id: changelog
+        run: |
+          version="${{ github.ref_name }}"
+          version="${version#v}"
+          notes=$(awk "/^## \[${version}\]/{found=1; next} found && /^## /{exit} found{print}" CHANGELOG.md)
+          echo "notes<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$notes" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
       - name: Create GitHub release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release create "${{ github.ref_name }}" dist/*.zip --generate-notes --title "${{ github.ref_name }}"
+        run: |
+          gh release create "${{ github.ref_name }}" dist/*.zip \
+            --title "${{ github.ref_name }}" \
+            --notes "${{ steps.changelog.outputs.notes }}"
