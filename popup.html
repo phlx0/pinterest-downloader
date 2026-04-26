@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinterest HD Downloader</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 240px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 13px;
+      color: #111;
+      background: #fff;
+    }
+
+    header {
+      background: #e60023;
+      color: #fff;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    header svg { width: 20px; height: 20px; flex-shrink: 0; }
+    header h1 { font-size: 14px; font-weight: 600; line-height: 1.2; }
+
+    .body { padding: 12px 14px; line-height: 1.5; color: #444; }
+
+    .tip {
+      margin-top: 8px;
+      padding: 8px 10px;
+      background: #f5f5f5;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+
+    .tip strong { color: #111; }
+
+    footer {
+      padding: 8px 14px;
+      border-top: 1px solid #eee;
+      font-size: 11px;
+      color: #999;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+         stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <polyline points="7 10 12 15 17 10"/>
+      <line x1="12" y1="15" x2="12" y2="3"/>
+    </svg>
+    <h1>Pinterest HD Downloader</h1>
+  </header>
+
+  <div class="body">
+    Active on <strong>pinterest.com</strong>.
+
+    <div class="tip">
+      <strong>How to use:</strong><br>
+      Hover over any pin — a download button appears in the bottom-right corner.
+      Click it to save the image or video in the highest available resolution.
+    </div>
+  </div>
+
+  <footer>Images download as originals from i.pinimg.com</footer>
+</body>
+</html>

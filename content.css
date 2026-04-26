@@ -1,0 +1,55 @@
+.phd-btn {
+  position: absolute;
+  bottom: 12px;
+  left: 8px;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+
+  background: rgba(0, 0, 0, 0.72);
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  opacity: 0;
+  transform: scale(0.8);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease,
+    background 0.1s ease;
+
+  pointer-events: auto;
+}
+
+[data-phd]:hover > .phd-btn,
+[data-phd]:focus-within > .phd-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.phd-btn:hover {
+  background: #e60023;
+  transform: scale(1.1);
+}
+
+.phd-btn:active {
+  transform: scale(0.95);
+}
+
+.phd-btn--done {
+  background: #00a550 !important;
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+.phd-btn svg {
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}

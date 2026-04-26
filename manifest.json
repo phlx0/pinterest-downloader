@@ -1,0 +1,34 @@
+{
+  "manifest_version": 2,
+  "name": "Pinterest HD Downloader",
+  "version": "1.0.0",
+  "description": "Download Pinterest images and videos in the highest resolution with one click.",
+  "author": "phlx0",
+
+  "permissions": ["downloads", "*://*.pinterest.com/*", "*://i.pinimg.com/*"],
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.pinterest.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "icons": {
+    "48": "icons/icon48.svg",
+    "96": "icons/icon96.svg"
+  },
+
+  "browser_action": {
+    "default_icon": "icons/icon48.svg",
+    "default_popup": "popup.html",
+    "default_title": "Pinterest HD Downloader"
+  }
+}
