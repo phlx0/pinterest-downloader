@@ -27,7 +27,8 @@ jobs:
             --api-key "${{ secrets.AMO_API_KEY }}" \
             --api-secret "${{ secrets.AMO_API_SECRET }}" \
             --amo-metadata amo-metadata.json \
-            --channel listed
+            --channel listed \
+            --approval-timeout 0
         continue-on-error: true
 
       - name: Extract changelog
