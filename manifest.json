@@ -22,13 +22,20 @@
   ],
 
   "icons": {
-    "48": "icons/icon48.svg",
-    "96": "icons/icon96.svg"
+    "48": "icons/icon48.png",
+    "96": "icons/icon96.png"
   },
 
   "browser_action": {
-    "default_icon": "icons/icon48.svg",
+    "default_icon": "icons/icon48.png",
     "default_popup": "popup.html",
     "default_title": "Pinterest HD Downloader"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "pinterest-downloader@phlx0",
+      "strict_min_version": "58.0"
+    }
   }
 }
